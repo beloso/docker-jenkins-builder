@@ -468,6 +468,12 @@ As an example:
 
 Will set the environment variable `PASSWORD` based on the contents of the `/run/secrets/mysecretpassword` file.
 
+Ensure that your file does not have unwanted newlines by using `printf`, like:
+
+```bash
+printf "secret password" > mysecretpassword
+```
+
 ## Umask for running applications
 
 For all of our images we provide the ability to override the default umask settings for services started within the containers using the optional `-e UMASK=022` setting.
